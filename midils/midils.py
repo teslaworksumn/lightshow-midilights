@@ -1,9 +1,14 @@
 import mido
 from InputThread import InputThread
+from plugins import Dmx as OutDmx
+from plugins import Log as OutLog
 
+dmx = OutDmx()
+vixenlog = OutLog()
 
 def handle_message(message):
     print("Message:", message)
+    vixenlog.send([255])
 
 try:
     backend_portmidi = mido.Backend('mido.backends.portmidi')
