@@ -9,7 +9,7 @@ try:
     print(inputs)
     keyboard_in = portmidi.open_input(inputs[0], callback=handle_message)
     print("Enter 'exit' to stop the program")
-    while input("Command: ") != 'stop':
+    while input("Command: ") != 'exit':
         pass
 except Exception as e:
     print(e)
