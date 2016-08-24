@@ -10,9 +10,9 @@ class Mapper:
 
     def map(self, key):
         """Maps the input key to the outputs in the mapping. Returns None if not found"""
-        if key in self.mapping:
-            return self.mapping[key]
-        return None
+        if key not in self.mapping:
+            return None
+        return self.mapping[key]
 
     def _load_mapping(self, filename):
         """Load the mapping from the file. Sets mapping to None if error occurred.

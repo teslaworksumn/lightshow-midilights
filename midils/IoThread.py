@@ -3,10 +3,10 @@ import time
 
 
 class IoThread:
-    def __init__(self, backend, name, output, mapper=None):
+    def __init__(self, backend, name, output_func, mapper=None):
         self._mido_backend = backend
         self._name = name
-        self._output = output
+        self._output_func = output_func
         self._mapper = mapper
         self._channel_values = []
         self._stop = threading.Event()
@@ -57,8 +57,9 @@ class IoThread:
         self._mido_backend.open_input(self._name, callback=self._handle_message)
         while not self._stop.is_set():
             if len(self._channel_values) > 0:
-                self._output.send(self._channel_values)
-            time.sleep(0.010)
+                print(self._channel_values)
+                self._output_func(self._channel_values)
+            time.sleep(0.1)
 
 
 def _velocity_to_output(velocity):

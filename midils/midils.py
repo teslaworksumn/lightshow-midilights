@@ -11,7 +11,12 @@ channel_outputs = []
 
 def main():
     dmx = OutDmx()
+    dmx.setPort('/dev/ttyUSB0')
     vixenlog = OutLog()
+    # DMX is 1-indexed
+    out_function = lambda channels: dmx.sendDMX([ch + 1 for ch in channels])
+#    out_function = vixenlog.send
+    dmx.sendDMX([255]*16)
     dir_path = os.path.dirname(os.path.realpath(__file__))
     config_path = dir_path + '/mapping.json'
     mapper = Mapper(config_path)
@@ -22,7 +27,7 @@ def main():
         inputs = backend_portmidi.get_input_names()
         print(inputs)
         # Start listening for midi
-        input_thread = IoThread(backend_portmidi, inputs[0], vixenlog, mapper)
+        input_thread = IoThread(backend_portmidi, inputs[0], out_function, mapper)
         input_thread.start()
         # Wait until user exits
         print("Enter 'exit' to stop the program")
