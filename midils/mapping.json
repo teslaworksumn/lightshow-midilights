@@ -1,12 +1,12 @@
 {
-  "keybegin": 38,
-  "keyend": 86,
+  "keybegin": 36,
+  "keyend": 84,
   "outputbegin": 1,
   "outputend": 49,
   "mappings": [
     {
       "inputkeys": [
-        38, 39, 40, 41, 42
+        36, 37, 38, 39, 40
       ],
       "outputchannels": [
         1, 3
@@ -14,7 +14,7 @@
     },
     {
       "inputkeys": [
-        43, 44, 45, 46, 47
+        41, 42, 43, 44, 45, 46, 47
       ],
       "outputchannels": [
         2

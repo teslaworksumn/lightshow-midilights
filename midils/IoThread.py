@@ -3,11 +3,12 @@ import time
 
 
 class IoThread:
-    def __init__(self, name, output, channel_values, backend):
+    def __init__(self, backend, name, output, mapper=None):
+        self._mido_backend = backend
         self._name = name
         self._output = output
-        self._mido_backend = backend
-        self._channel_values = channel_values
+        self._mapper = mapper
+        self._channel_values = []
         self._stop = threading.Event()
 
         self._thread = threading.Thread(target=self._run)
@@ -22,13 +23,45 @@ class IoThread:
         self._stop.set()
 
     def _handle_message(self, message):
+        """Updates channel values when a MIDI message is received"""
+        value = 0
         if message.type == 'note_on':
-            print("Message:", message)
-        elif message.type == 'note_off':
-            pass
+            value = _velocity_to_output(message.velocity)
+
+        if message.type in ['note_on', 'note_off']:
+            channels = self._get_channels(message.note)
+            if channels is None:
+                print("Note not mapped:", message.note)
+            else:
+                for channel in channels:
+                    self._modify_channel_value(channel, value)
+
+    def _modify_channel_value(self, channel, value):
+        """Updates the value of a channel, extending the underlying array of values as necessary"""
+        num_ch = len(self._channel_values)
+        if channel >= num_ch:
+            diff = channel - num_ch + 1
+            extension = [0] * diff
+            self._channel_values.extend(extension)
+        self._channel_values[channel] = value
+
+    def _get_channels(self, note):
+        """Maps the note to a set of output channels if a mapper exists.
+        Returns None if mapping doesn't exist"""
+        if self._mapper is None:
+            return note
+        return self._mapper.map(note)
 
     def _run(self):
+        """Write the channel values to the output at set intervals until stopped"""
         self._mido_backend.open_input(self._name, callback=self._handle_message)
         while not self._stop.is_set():
-            self._output.send(self._channel_values)
+            if len(self._channel_values) > 0:
+                self._output.send(self._channel_values)
             time.sleep(0.010)
+
+
+def _velocity_to_output(velocity):
+    """Approximately maps keyboard velocity in range [1, 120]
+    to output value in range [0, 255]"""
+    return (velocity - 1) * 2 + 1
