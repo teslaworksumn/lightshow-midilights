@@ -30,5 +30,5 @@ class IoThread:
     def _run(self):
         self._mido_backend.open_input(self._name, callback=self._handle_message)
         while not self._stop.is_set():
-            self._output.write(self._channel_values)
+            self._output.send(self._channel_values)
             time.sleep(0.010)
