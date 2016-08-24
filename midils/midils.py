@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
+import os
 import mido
 from IoThread import IoThread
 from plugins import Dmx as OutDmx
 from plugins import Log as OutLog
-
+import mapper
 
 channel_outputs = []
 
@@ -12,6 +13,8 @@ def main():
     dmx = OutDmx()
     vixenlog = OutLog()
     channel_values = []
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    mapping = mapper.get_mapping(dir_path + '/mapping.json')
 
     # Keyboard velocities are in range [1, 120]
     # Outputs are in range [0, 255]
