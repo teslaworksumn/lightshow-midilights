@@ -12,6 +12,7 @@ channel_outputs = []
 def main():
     dmx = OutDmx()
     dmx.setPort('/dev/ttyUSB0')
+    dmx.connect()
     vixenlog = OutLog()
     # DMX is 1-indexed
     out_function = lambda channels: dmx.sendDMX([ch + 1 for ch in channels])
@@ -34,6 +35,7 @@ def main():
             pass
         # Cleanup
         input_thread.stop()
+        dmx.disconnect()
     except Exception as e:
         print(e)
 
