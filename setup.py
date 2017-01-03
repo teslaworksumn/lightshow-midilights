@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='midi-lightshow',
@@ -9,6 +9,5 @@ setup(
     url='https://github.com/bookdude13/midi-lightshow',
     license='LICENSE',
     description='Interface between a midi keyboard and some dmx-controlled lights',
-    install_requires=['mido'],
-    requires=['mido']
+    install_requires=['mido', 'pyserial']
 )
