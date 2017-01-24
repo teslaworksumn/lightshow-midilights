@@ -6,18 +6,50 @@
   "mappings": [
     {
       "inputkeys": [
-        36, 37, 38, 39, 40, 84
+        36, 47, 57, 67, 77
       ],
       "outputchannels": [
-        1, 3
+        0
       ]
     },
     {
       "inputkeys": [
-        41, 42, 43, 44, 45, 46, 47, 83
+        38, 48, 59, 69, 79
       ],
       "outputchannels": [
-        0, 2
+        1
+      ]
+    },
+    {
+      "inputkeys": [
+        40, 50, 60, 71, 81
+      ],
+      "outputchannels": [
+        2
+      ]
+    },
+    {
+      "inputkeys": [
+        41, 52, 62, 72, 83
+      ],
+      "outputchannels": [
+        3
+      ]
+    },
+    {
+      "inputkeys": [
+        43, 53, 64, 74, 84
+      ],
+      "outputchannels": [
+        4
+      ]
+    },
+    {
+      "inputkeys": [
+        45, 55, 65, 76
+      ],
+      "outputchannels": [
+        5
       ]
     }
   ]

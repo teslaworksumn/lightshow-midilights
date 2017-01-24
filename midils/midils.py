@@ -27,7 +27,7 @@ def main():
         inputs = backend_portmidi.get_input_names()
         print(inputs)
         # Start listening for midi
-        input_thread = IoThread(backend_portmidi, inputs[0], out_function, mapper)
+        input_thread = IoThread(backend_portmidi, inputs[1], out_function, mapper)
         input_thread.start()
         # Wait until user exits
         print("Enter 'exit' to stop the program")

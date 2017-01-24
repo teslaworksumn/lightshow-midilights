@@ -1,5 +1,6 @@
 import threading
 import time
+import sys
 
 
 class IoThread:
@@ -31,7 +32,7 @@ class IoThread:
         if message.type in ['note_on', 'note_off']:
             channels = self._get_channels(message.note)
             if channels is None:
-                print("Note not mapped:", message.note)
+                sys.stdout.write("Note not mapped: {0}\033[K\n".format(message.note))
             else:
                 for channel in channels:
                     self._modify_channel_value(channel, value)
@@ -57,9 +58,9 @@ class IoThread:
         self._mido_backend.open_input(self._name, callback=self._handle_message)
         while not self._stop.is_set():
             if len(self._channel_values) > 0:
-                print(self._channel_values)
+                sys.stdout.write("\r{0}\033[K\r".format(self._channel_values))
                 self._output_func(self._channel_values)
-            time.sleep(0.1)
+            time.sleep(0.01)
 
 
 def _velocity_to_output(velocity):
