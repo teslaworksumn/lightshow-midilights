@@ -1,0 +1,105 @@
+
+{
+  "keybegin": 36,
+  "keyend": 84,
+  "outputbegin": 0,
+  "outputend": 48,
+  "mappings": [
+    {
+      "inputkeys": [
+        36,48,60,72
+      ],
+      "outputchannels": [
+        0
+      ]
+    },
+    {
+      "inputkeys": [
+        37,49,61,73
+      ],
+      "outputchannels": [
+        1
+      ]
+    },
+    {
+      "inputkeys": [
+        38,50,62,74
+      ],
+      "outputchannels": [
+        2
+      ]
+    },
+    {
+      "inputkeys": [
+        39,51,63,75
+      ],
+      "outputchannels": [
+        3
+      ]
+    },
+    {
+      "inputkeys": [
+        40,52,64,76
+      ],
+      "outputchannels": [
+        4
+      ]
+    },
+    {
+      "inputkeys": [
+        41,53,65,77
+      ],
+      "outputchannels": [
+        5
+      ]
+    },
+    {
+      "inputkeys": [
+        42,54,66,78
+      ],
+      "outputchannels": [
+        6
+      ]
+    },
+    {
+      "inputkeys": [
+        43,55,67,79
+      ],
+      "outputchannels": [
+        7
+      ]
+    },
+    {
+      "inputkeys": [
+        44,56,68,80
+      ],
+      "outputchannels": [
+        8
+      ]
+    },
+    {
+      "inputkeys": [
+        45,57,69,81
+      ],
+      "outputchannels": [
+        9
+      ]
+    },
+    {
+      "inputkeys": [
+        46,58,70,82
+      ],
+      "outputchannels": [
+        10
+      ]
+    },
+    {
+      "inputkeys": [
+        47,59,71,83
+      ],
+      "outputchannels": [
+        11
+      ]
+    }
+  ]
+}
