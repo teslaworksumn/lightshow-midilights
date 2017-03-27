@@ -11,9 +11,9 @@ from plugins import Log as OutLog
 help_text = """MIDI Lightshow.
 
 Usage:
-    midils.py list [<backend>]
-    midils.py run <midi-input> <dmx> <config> [<backend>]
-    midils.py run (-d || --dry) <midi-input> <config> [<backend>]
+    midilights.py list [<backend>]
+    midilights.py run <midi-input> <dmx> <config> [<backend>]
+    midilights.py run (-d || --dry) <midi-input> <config> [<backend>]
 
 Options:
     <backend>   Mido backend to use [default: 'mido.backends.portmidi']

@@ -1,2 +1,5 @@
 run:
-	python3 ./midils/midils.py
+	python3 ./midilights/midilights.py
+
+test:
+	@echo "Tests coming soon!"

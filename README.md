@@ -1,10 +1,10 @@
-# midi-lightshow
+# midilights
 
 ```
 Usage:  
-    midils.py list [<backend>]  
-    midils.py run <midi-input> <dmx> <config> [<backend>]  
-    midils.py run (-d || --dry) <midi-input> <config> [<backend>]  
+    midilights.py list [<backend>]  
+    midilights.py run <midi-input> <dmx> <config> [<backend>]  
+    midilights.py run (-d || --dry) <midi-input> <config> [<backend>]  
 
 Options:  
     <backend>   Mido backend to use [default: 'mido.backends.portmidi']  
@@ -16,9 +16,8 @@ Options:
 ```
 
 # Setting up (this was done on a Unix system. May be slightly different commands on Windows)  
-Clone the repository: `git clone git@github.com:teslaworksumn/midi-lightshow.git`  
-Setup submodules: `git submodule init && git submodule update`  
-Install dependencies (may need to be run as root/sudo): `python3 setup.py install`  
+Clone the repository: `git clone --recursive git@github.com:teslaworksumn/lightshow-midilights.git`  
+Install dependencies (may need to be run as root/sudo): `pip3 install -r requirements.txt`  
 If using the PortMidi backend (default), you must install PortMidi: `sudo apt install libportmidi-dev`  
 Run: `make run`
 

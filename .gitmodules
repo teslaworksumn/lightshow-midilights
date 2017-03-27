@@ -1,4 +1,4 @@
-[submodule "midils/plugins/enttec_usb_dmx_pro"]
-	path = midils/plugins/enttec_usb_dmx_pro
+[submodule "midilights/plugins/enttec_usb_dmx_pro"]
+	path = midilights/plugins/enttec_usb_dmx_pro
 	url = git://github.com/teslaworksumn/enttec-usb-dmx-pro
 
